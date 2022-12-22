@@ -33,7 +33,7 @@ securityContext:
   - name: http
     containerPort: 8000
     protocol: TCP
-  {{- include "librenms.securitycontext.default" . | indent 4 }}
+  {{- include "librenms.securitycontext.default" . | indent 2 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -49,8 +49,7 @@ securityContext:
     value: dispatcher1
   - name: SIDECAR_DISPATCHER
     value: "1"
-  securityContext:
-  {{- include "librenms.securitycontext.default" . | indent 4 }}
+  {{- include "librenms.securitycontext.default" . | indent 2 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -64,8 +63,7 @@ securityContext:
   env:
   - name: SIDECAR_SYSLOGNG
     value: "1"
-  securityContext:
-  {{- include "librenms.securitycontext.default" . | indent 4 }}
+  {{- include "librenms.securitycontext.default" . | indent 2 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -86,8 +84,7 @@ securityContext:
   - name: snmp-udp
     containerPort: 162
     protocol: UDP
-  securityContext:
-  {{- include "librenms.securitycontext.default" . | indent 4 }}
+  {{- include "librenms.securitycontext.default" . | indent 2 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -99,8 +96,7 @@ securityContext:
   - name: rrdcached
     containerPort: 42217
     protocol: TCP
-  securityContext:
-  {{- include "librenms.securitycontext.default" . | indent 4 }}
+  {{- include "librenms.securitycontext.default" . | indent 2 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
