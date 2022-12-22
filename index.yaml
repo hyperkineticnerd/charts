@@ -1,5 +1,37 @@
 apiVersion: v1
 entries:
+  librenms:
+  - apiVersion: v2
+    appVersion: 22.11.0
+    created: "2022-12-22T19:23:35.304742257Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.16
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.3.2
+    - condition: rrdcached.enabled
+      name: rrdcached
+      repository: https://hyperkineticnerd.github.io/charts
+      version: 0.1.1
+    description: A Helm chart for Kubernetes
+    digest: abc0c28c406072444229756ffbacaac038c247d6ad138c69c8e5552154a233e7
+    maintainers:
+    - email: audiohacked@gmail.com
+      name: Sean Nelson
+      url: https://blog.hyperkineticnerd.com
+    name: librenms
+    type: application
+    urls:
+    - https://github.com/hyperkineticnerd/charts/releases/download/librenms-0.1.2/librenms-0.1.2.tgz
+    version: 0.1.2
   openshift:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -22,4 +54,4 @@ entries:
     urls:
     - https://github.com/hyperkineticnerd/charts/releases/download/rrdcached-0.1.1/rrdcached-0.1.1.tgz
     version: 0.1.1
-generated: "2022-12-22T19:13:53.354595081Z"
+generated: "2022-12-22T19:23:35.304750857Z"
