@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  openshift:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-22T19:06:18.417488609Z"
+    description: A Helm chart for Kubernetes
+    digest: 5a72d10f1effbb720df91d114595feb5fda0874572ab3ec4e425f3888ea6aae4
+    name: openshift
+    type: library
+    urls:
+    - https://github.com/hyperkineticnerd/charts/releases/download/openshift-0.1.0/openshift-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-12-22T19:06:18.41749341Z"
