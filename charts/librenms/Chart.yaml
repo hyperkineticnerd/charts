@@ -22,11 +22,10 @@ dependencies:
     version: "6.3.2"
     repository: https://charts.bitnami.com/bitnami
     condition: memcached.enabled
-  # - name: rrdcached
-  #   version: "0.1.0"
-  #   repository: https://hyperkineticnerd.github.io/charts
-  #   condition: rrdcached.enabled
-
+  - name: rrdcached
+    version: "0.1.0"
+    repository: https://hyperkineticnerd.github.io/charts
+    condition: rrdcached.enabled
 maintainers: # (optional)
   - name: Sean Nelson
     email: audiohacked@gmail.com
