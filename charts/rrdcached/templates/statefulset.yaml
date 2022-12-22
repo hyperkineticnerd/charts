@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: rrdcached
-  namespace: librenms
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   serviceName: rrdcached
   selector:
     matchLabels:
-      app: librenms
+      app: {{ .Release.Name }}
       component: rrdcached
   template:
     metadata:
       labels:
-        app: librenms
+        app: {{ .Release.Name }}
         component: rrdcached
     spec:
-      serviceAccountName: {{ .Values.serviceAccountName }}
+      serviceAccountName: {{ default .Release.Name .Values.serviceAccountName }}
       containers:
         - name: rrdcached
-          image: ghcr.io/crazy-max/rrdcached
+          image: {{ .Values.image.repository }}
           securityContext:
             runAsNonRoot: false
             allowPrivilegeEscalation: true
