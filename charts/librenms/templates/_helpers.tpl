@@ -5,8 +5,9 @@
 {{- end }}
 
 {{- define "librenms.volumemounts.data" }}
-- name: data
-  mountPath: /data
+volumeMounts:
+  - name: data
+    mountPath: /data
 {{- end }}
 
 
@@ -16,9 +17,10 @@
 {{- end }}
 
 
-{{- define "librenms.scc.default" }}
-runAsNonRoot: false
-allowPrivilegeEscalation: true
+{{- define "librenms.securitycontext.default" }}
+securityContext:
+  runAsNonRoot: false
+  allowPrivilegeEscalation: true
 {{- end }}
 
 
@@ -31,9 +33,7 @@ allowPrivilegeEscalation: true
   - name: http
     containerPort: 8000
     protocol: TCP
-  securityContext:
-  {{- include "librenms.scc.default" . | indent 4 }}
-  volumeMounts:
+  {{- include "librenms.securitycontext.default" . | indent 4 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -50,8 +50,7 @@ allowPrivilegeEscalation: true
   - name: SIDECAR_DISPATCHER
     value: "1"
   securityContext:
-  {{- include "librenms.scc.default" . | indent 4 }}
-  volumeMounts:
+  {{- include "librenms.securitycontext.default" . | indent 4 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -66,8 +65,7 @@ allowPrivilegeEscalation: true
   - name: SIDECAR_SYSLOGNG
     value: "1"
   securityContext:
-  {{- include "librenms.scc.default" . | indent 4 }}
-  volumeMounts:
+  {{- include "librenms.securitycontext.default" . | indent 4 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -89,8 +87,7 @@ allowPrivilegeEscalation: true
     containerPort: 162
     protocol: UDP
   securityContext:
-  {{- include "librenms.scc.default" . | indent 4 }}
-  volumeMounts:
+  {{- include "librenms.securitycontext.default" . | indent 4 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
@@ -103,8 +100,7 @@ allowPrivilegeEscalation: true
     containerPort: 42217
     protocol: TCP
   securityContext:
-  {{- include "librenms.scc.default" . | indent 4 }}
-  volumeMounts:
+  {{- include "librenms.securitycontext.default" . | indent 4 }}
   {{- include "librenms.volumemounts.data" . | indent 2 }}
 {{- end }}
 
